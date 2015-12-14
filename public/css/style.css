@@ -1,0 +1,25 @@
+.picture {
+    background: url("../img/main_pic.jpg");
+    background-size: cover;
+    height: 100vh;
+}
+.navbar {
+    margin-bottom: 0px;
+}
+
+.stuff {
+    height: 100vh;
+}
+
+.bottom {
+    margin-top: 80%;
+
+}
+.panel {
+    opacity: 0.85;
+    text-align: center;
+}
+h1 {
+    font-weight: normal;
+
+}
