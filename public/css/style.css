@@ -3,6 +3,9 @@
     background-size: cover;
     height: 100vh;
 }
+.location {
+    height: 100vh;
+}
 .navbar {
     margin-bottom: 0px;
 }
@@ -16,10 +19,13 @@
 
 }
 .panel {
-    opacity: 0.85;
+    background-color: rgba(255, 255, 255, 0.85);
     text-align: center;
 }
 h1 {
     font-weight: normal;
-
+}
+.map {
+    margin-top: 4%;
+    text-align: center;
 }
