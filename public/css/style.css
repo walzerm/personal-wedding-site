@@ -2,6 +2,7 @@
     background: url("../img/main_pic.jpg");
     background-size: cover;
     height: 100vh;
+    box-shadow: 0 4px 2px -2px gray;
 }
 .location {
     height: 100vh;
@@ -15,7 +16,7 @@
 }
 
 .bottom {
-    margin-top: 80%;
+    margin-top: 50%;
 
 }
 .panel {
@@ -28,4 +29,8 @@ h1 {
 .map {
     margin-top: 4%;
     text-align: center;
+}
+.hotels {
+    height: 100vh;
+    background-color: #CBCADE;
 }
