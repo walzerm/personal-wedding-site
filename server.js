@@ -15,6 +15,6 @@ app.set('view engine', 'ejs');
 var router = require('./controllers/router');
 app.use(router);
 
-app.listen(8000, function() {
+app.listen(process.env.PORT || 8000, function() {
     console.log('Server going at 8000...');
 })
