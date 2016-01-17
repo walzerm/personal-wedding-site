@@ -1,0 +1,28 @@
+{
+  "name": "wedding_website",
+  "version": "1.0.0",
+  "description": "wedding website for Lissa and Roger",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/walzerm/personal-wedding-site.git"
+  },
+  "author": "lissa walzer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/walzerm/personal-wedding-site/issues"
+  },
+  "homepage": "https://github.com/walzerm/personal-wedding-site#readme",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "ejs": "^2.3.4",
+    "express": "^4.13.3",
+    "knex": "^0.9.0",
+    "passport": "^0.3.2",
+    "path": "^0.12.7",
+    "pg": "^4.4.3"
+  }
+}
