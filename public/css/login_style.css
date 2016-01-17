@@ -1,0 +1,15 @@
+.picture {
+    background: url("../img/grad.jpg");
+    background-size: cover;
+    height: 100vh;
+}
+
+.panel {
+    background-color: rgba(255, 255, 255, 0.65);
+}
+
+.row-centered {
+    margin-top: 5%;
+    text-align:center;
+    /*align-items: center;*/
+}
