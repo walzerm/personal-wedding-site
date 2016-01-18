@@ -3,10 +3,11 @@
 module.exports = {
 
   development: {
-    client: 'sqlite3',
+    client: 'postgresql',
     connection: {
-      filename: './dev.sqlite3'
-    }
+      database: 'wedding'
+    },
+    debug: true
   },
 
   staging: {
@@ -27,11 +28,7 @@ module.exports = {
 
   production: {
     client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
+    connection:'postgres://kwjpqmvarfnjwt:oNR77cEifSLQJklpWYG_7a6hwg@ec2-54-83-61-45.compute-1.amazonaws.com:5432/dd1sp6jbu29mt2',
     pool: {
       min: 2,
       max: 10
