@@ -46,7 +46,13 @@ h1 {
     height: 100vh;
     background-color: #CBCADE;
 }
-
-.airbnb {
-    width: 200px;
+.lodging-title {
+    font-size: 26px;
+}
+.lodging-logo {
+    max-height: 100px;
+    max-width: 250px;
+}
+.lodging-logo.airbnb {
+    margin-left: -25px;
 }
