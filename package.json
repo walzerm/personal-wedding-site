@@ -4,7 +4,8 @@
   "description": "wedding website for Lissa and Roger",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -17,13 +18,17 @@
   },
   "homepage": "https://github.com/walzerm/personal-wedding-site#readme",
   "dependencies": {
+    "bcrypt": "^0.8.5",
     "body-parser": "^1.14.2",
+    "cookie-parser": "^1.4.1",
     "ejs": "^2.3.4",
     "express": "^4.13.3",
+    "express-session": "^1.13.0",
     "knex": "^0.9.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "pg": "^4.4.3"
-  }
+  },
+  "devDependencies": {}
 }
