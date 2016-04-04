@@ -55,16 +55,22 @@ passport.use('login', new LocalStrategy({
     passReqToCallback: true
     },
     function(req, userID, password, done) {
-        knex('party_numbers').where('user_id', parseInt(userID)).first().then(function(user) {
-            console.log('here!');
+        var id = parseInt(userID);
+
+        //check for empty passowrd or non-int id, any string recieved from userID that is not a number will result in NaN
+        if (isNaN(id) || !password)
+            return done(null, false, req.flash('loginMessage', 'Incorrect username and/or password'));
+
+        knex('party_numbers').where('user_id', id).first().then(function(user) {
 
             //use this once password is encrypted !bcrypt.compareSync(password, user.password)
             if (!user || password !== user.password) {
-                return done(null, false);
+                return done(null, false, req.flash('loginMessage', 'Incorrect username and/or password'));
             }
             return done(null, user.user_id);
         })
     }
+
 ))
 
 //Middleware to check if user is logged in
