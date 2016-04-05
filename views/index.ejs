@@ -12,6 +12,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
         <link rel="stylesheet" href="css/index_style.css" media="screen" title="no title" charset="utf-8">
+
         <!-- Analytics -->
         <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -28,13 +29,15 @@
 
         <% include partials/navbar %>
 
+        <% include partials/modal %>
+
         <div class="container-fluid picture">
             <div class="col-md-6"></div>
             <div class="col-md-6">
                 <div class="panel panel-default bottom">
                     <div class="panel-body">
                         <h1>August 6, 2016</h2>
-                        <button type="button" class="btn btn-primary">RSVP</button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#rsvpModal">RSVP</button>
                     </div>
                 </div>
             </div>
