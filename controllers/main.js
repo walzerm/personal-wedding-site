@@ -3,9 +3,11 @@ var router = express.Router();
 var bodyParser = require('body-parser');
 var knex = require('../db/knex');
 
+router.get('/robots.txt', function(req, res) {
+    res.render('robots.txt');
+})
 
 router.get('/index', isLoggedIn, function(req, res) {
-    console.log(req.user.user_id);
     res.render('index', {user: req.user});
 })
 
