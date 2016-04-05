@@ -11,6 +11,11 @@ router.get('/index', isLoggedIn, function(req, res) {
     res.render('index', {user: req.user});
 })
 
+router.post('/rsvp', function(req, res) {
+    console.log(req.body);
+    res.redirect('/index');
+})
+
 // route middleware to make sure a user is logged in
 function isLoggedIn(req, res, next) {
     // if user is authenticated in the session, carry on
