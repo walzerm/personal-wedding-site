@@ -57,7 +57,7 @@ passport.use('login', new LocalStrategy({
     function(req, userID, password, done) {
         var id = parseInt(userID);
 
-        //check for empty passowrd or non-int id, any string recieved from userID that is not a number will result in NaN
+        //check for empty password or non-int id, any string recieved from userID that is not a number will result in NaN
         if (isNaN(id) || !password)
             return done(null, false, req.flash('loginMessage', 'Incorrect username and/or password'));
 
