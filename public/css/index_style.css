@@ -4,15 +4,8 @@
     height: 100vh;
     box-shadow: 0 4px 2px -2px gray;
 }
-.location {
-    height: 100vh;
-}
 .navbar {
     margin-bottom: 0px;
-}
-
-.stuff {
-    height: 100vh;
 }
 
 .bottom {
@@ -42,10 +35,6 @@ h1 {
     margin-top: 4%;
     text-align: center;
 }
-.lodging {
-    height: 100vh;
-    background-color: #CBCADE;
-}
 .lodging-title {
     font-size: 26px;
 }
@@ -59,4 +48,11 @@ h1 {
 .contact-table-cell {
     font-size: 16px;
     padding: 10px;
+}
+.content-section {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.content-section:nth-of-type(even) {
+    background-color: #CBCADE;
 }
