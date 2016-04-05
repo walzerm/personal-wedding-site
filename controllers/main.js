@@ -5,7 +5,8 @@ var knex = require('../db/knex');
 
 
 router.get('/index', isLoggedIn, function(req, res) {
-    res.render('index')
+    console.log(req.user.user_id);
+    res.render('index', {user: req.user});
 })
 
 // route middleware to make sure a user is logged in
