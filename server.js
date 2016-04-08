@@ -44,7 +44,7 @@ passport.serializeUser(function(userID, done) {
 })
 
 passport.deserializeUser(function(userID, done) {
-    knex('party_numbers').where('user_id', userID).first().then(function(user) {
+    knex('party_numbers').where('group_name', userID).first().then(function(user) {
         done(null, user);
     })
 })
@@ -55,19 +55,22 @@ passport.use('login', new LocalStrategy({
     passReqToCallback: true
     },
     function(req, userID, password, done) {
-        var id = parseInt(userID);
 
-        //check for empty password or non-int id, any string recieved from userID that is not a number will result in NaN
-        if (isNaN(id) || !password)
-            return done(null, false, req.flash('loginMessage', 'Incorrect username and/or password'));
+        //Query the table for user
+        knex('party_numbers').where('group_name', userID).first().then(function(user) {
 
-        knex('party_numbers').where('user_id', id).first().then(function(user) {
-
-            //use this once password is encrypted !bcrypt.compareSync(password, user.password)
-            if (!user || password !== user.password) {
+            //if no user, add user
+            if (!user) {
+                var hash = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null)
+                knex('party_numbers').insert({group_name: userID, password: hash, atendees: 3, rsvp: false}).then(function(user) {
+                    return done(null, user.group_name);
+                })
+            }
+            //compare the passwords
+            if (!bcrypt.compareSync(password, user.password)) {
                 return done(null, false, req.flash('loginMessage', 'Incorrect username and/or password'));
             }
-            return done(null, user.user_id);
+            return done(null, user.group_name);
         })
     }
 

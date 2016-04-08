@@ -15,4 +15,10 @@ router.post('/login', passport.authenticate('login', {
     failureFlash : true})
 );
 
+router.post('/signup', passport.authenticate('login', {
+    successRedirect: '/index',
+    failureRedirect: '/',
+    failureFlash : true})
+);
+
 module.exports = router;

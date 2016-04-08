@@ -8,11 +8,15 @@ router.get('/robots.txt', function(req, res) {
 })
 
 router.get('/index', isLoggedIn, function(req, res) {
+    console.log(req.user);
     res.render('index', {user: req.user});
 })
 
 router.post('/rsvp', function(req, res) {
     console.log(req.body);
+
+
+    //right now redirect, but moght be better to just close the modal upon submit
     res.redirect('/index');
 })
 
