@@ -4,7 +4,7 @@ exports.up = function(knex, Promise) {
         table.increments();
         table.string('group_name');
         table.string('password');
-        table.integer('atendees');
+        table.boolean('atendees');
     });
 };
 
