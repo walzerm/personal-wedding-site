@@ -12,6 +12,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
         <link rel="stylesheet" href="css/index_style.css" media="screen" title="no title" charset="utf-8">
+        <script type="text/javascript" src="js/app.js"></script>
 
         <!-- Analytics -->
         <script>
@@ -29,7 +30,9 @@
 
         <% include partials/navbar %>
 
-        <% include partials/modal %>
+        <% include partials/rsvp_modal %>
+
+        <% include partials/already_rspvd_modal %>
 
         <div class="container-fluid picture">
             <div class="col-md-6"></div>
@@ -37,7 +40,12 @@
                 <div class="panel panel-default bottom">
                     <div class="panel-body">
                         <h1>August 6, 2016</h2>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#rsvpModal">RSVP</button>
+                        <% if (!user.rsvp) { %>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#rsvpModal">RSVP</button>
+                        <% } else { %>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#alreadyModal">RSVP</button>
+                        <% } %>
+
                     </div>
                 </div>
             </div>
