@@ -7,6 +7,7 @@
       </div>
       <div class="modal-body">
           <form class="form-horizontal" action="/rsvp" method="post">
+              <input type="hidden" name="group_name" value="<%= user.group_name %>">
               <p>Please indicate if you are accepting or declining.</p>
               <div class="form-group">
                   <div class="col-lg-10 col-lg-offset-1">

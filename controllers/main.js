@@ -12,9 +12,20 @@ router.get('/index', isLoggedIn, function(req, res) {
     res.render('index', {user: req.user});
 })
 
-router.post('/rsvp', function(req, res) {
+router.post('/rsvp', isLoggedIn, function(req, res) {
     console.log(req.body);
+    var rsvpResponse = true;
+    if (req.body.rsvpRadio === "decline") {
+        rsvpResponse = false;
+    }
 
+    knex('rsvp').insert({group_name: req.body.group_name, names: JSON.stringify(req.body.person), response: rsvpResponse, notes: req.body.notes}).then(function() {
+        console.log('done');
+    });
+
+    knex('party_numbers').where('group_name', req.body.group_name).update({rsvp: true}).then(function() {
+        console.log('done2');
+    });
 
     //right now redirect, but moght be better to just close the modal upon submit
     res.redirect('/index');

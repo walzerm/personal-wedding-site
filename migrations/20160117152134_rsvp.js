@@ -2,9 +2,10 @@
 exports.up = function(knex, Promise) {
     return knex.schema.createTable('rsvp', function(table) {
         table.increments();
-        table.string('guest_name');
-        table.integer('party_number');
-        table.string('response');
+        table.string('group_name');
+        table.json('names');
+        table.boolean('response');
+        table.text('notes');
     })
 };
 
