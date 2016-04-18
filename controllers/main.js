@@ -9,11 +9,13 @@ router.get('/robots.txt', function(req, res) {
 
 router.get('/index', isLoggedIn, function(req, res) {
     console.log(req.user);
-    res.render('index', {user: req.user});
+
+    knex('rsvp').where('group_name', req.user.group_name).first().then(function(user_rsvp) {
+        res.render('index', {user: req.user, rsvp: user_rsvp});
+    })
 })
 
 router.post('/rsvp', isLoggedIn, function(req, res) {
-    console.log(req.body);
     var rsvpResponse = true;
     if (req.body.rsvpRadio === "decline") {
         rsvpResponse = false;
@@ -23,9 +25,6 @@ router.post('/rsvp', isLoggedIn, function(req, res) {
         console.log('done');
     });
 
-    knex('party_numbers').where('group_name', req.body.group_name).update({rsvp: true}).then(function() {
-        console.log('done2');
-    });
 
     //right now redirect, but moght be better to just close the modal upon submit
     res.redirect('/index');
