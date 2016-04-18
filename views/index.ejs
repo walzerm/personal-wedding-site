@@ -30,9 +30,6 @@
 
         <% include partials/navbar %>
 
-        <% include partials/rsvp_modal %>
-
-        <% include partials/already_rspvd_modal %>
 
         <div class="container-fluid picture">
             <div class="col-md-6"></div>
@@ -40,11 +37,8 @@
                 <div class="panel panel-default bottom">
                     <div class="panel-body">
                         <h1>August 6, 2016</h2>
-                        <% if (!user.rsvp) { %>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#rsvpModal">RSVP</button>
-                        <% } else { %>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#alreadyModal">RSVP</button>
-                        <% } %>
+                            <a href="#rsvp" class="btn btn-primary">RSVP</a>
+
 
                     </div>
                 </div>
@@ -65,5 +59,8 @@
 
         <a name="contact"></a>
         <% include partials/contact %>
+
+        <a name="rsvp"></a>
+        <% include partials/rsvp %>
     </body>
 </html>

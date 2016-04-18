@@ -1,0 +1,47 @@
+<div class="container-fluid content-section rsvp">
+    <h2>RSVP</h2>
+
+    <form class="form-horizontal" action="/rsvp" method="post">
+        <fieldset>
+            <input type="hidden" name="group_name" value="<%= user.group_name %>">
+            <p>Please indicate if you are accepting or declining.</p>
+            <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-1">
+                  <div class="radio">
+                      <label>
+                          <input type="radio" name="rsvpRadio" value="accept" checked="">
+                          Accepting
+                      </label>
+                  </div>
+                  <div class="radio">
+                      <label>
+                          <input type="radio" name="rsvpRadio" value="decline">
+                          Declining
+                      </label>
+                  </div>
+                </div>
+
+            </div>
+            <p>If accepting, please enter the names of all attendees.</p>
+            <% for (var i = 0; i < user.atendees; i++) { %>
+                <div class="form-group">
+                    <div class="col-lg-8 col-lg-offset-1">
+                        <input type="text" class="form-control" name="person" placeholder="Name">
+                    </div>
+                </div>
+            <% } %>
+            <p>Anything to add?</p>
+            <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <textarea name="notes" rows="5" cols="40" placeholder="Comments"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <button type="submit" class="btn btn-primary">Send!</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+
+</div>
