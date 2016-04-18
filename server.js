@@ -62,7 +62,7 @@ passport.use('login', new LocalStrategy({
             //if no user, add user
             if (!user) {
                 var hash = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null)
-                knex('party_numbers').insert({group_name: userID, password: hash, atendees: 3, rsvp: false}).then(function(user) {
+                knex('party_numbers').insert({group_name: userID, password: hash, attendees: 3, rsvp: false}).then(function(user) {
                     return done(null, user.group_name);
                 })
             }
