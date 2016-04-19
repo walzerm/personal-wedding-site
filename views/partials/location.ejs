@@ -1,8 +1,44 @@
 <div class="container-fluid content-section location">
+
+
+    <% if (user.rehearsal_dinner) { %>
+    <div class="col-md-6 map">
+        <div class="map-container">
+            <h3>Rehearsal</h3>
+            <h4 class="text-primary">Friday, ~5:00 pm (TBD)</h4>
+            <div class="map-overlay" onClick="style.pointerEvents='none'"></div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2687.453054421141!2d-122.30880398455729!3d47.65619449254414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5490148d152eb78f%3A0x5d9e020c09e1ee7c!2sGrieg+Garden!5e0!3m2!1sen!2sus!4v1450126507698" width="450" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+            <br>
+            <br>
+            <p>
+            <h4 class="text-primary">Grieg Garden </h4>
+            Univeristy of Washington <br>
+            Seattle, WA <br>
+            </p>
+        </div>
+    </div>
+
+    <div class="col-md-6 map">
+        <div class="map-container">
+            <h3>Rehearsal Dinner</h3>
+            <h4 class="text-primary">Friday, ~6:00 pm (following rehearsal)</h4>
+            <div class="map-overlay" onClick="style.pointerEvents='none'"></div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2687.690013524697!2d-122.31653164876484!3d47.65159037908547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x549014ee103bdc09%3A0x73fa232722bfd941!2sAgua+Verde+Cafe+%26+Paddle+Club!5e0!3m2!1sen!2sus!4v1461043018951" width="450" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+            <br>
+            <br>
+            <p>
+            <h4 class="text-primary">Agua Verde</h4>
+            1303 NE Boat St <br>
+            Seattle, WA <br>
+            </p>
+        </div>
+    </div>
+    <% } %>
+
     <div class="col-md-6 map">
         <div class="map-container">
             <h3>Ceremony</h3>
-            <h4 class="text-primary">5:30 pm</h4>
+            <h4 class="text-primary">Saturday, 5:30 pm</h4>
             <div class="map-overlay" onClick="style.pointerEvents='none'"></div>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2687.453054421141!2d-122.30880398455729!3d47.65619449254414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5490148d152eb78f%3A0x5d9e020c09e1ee7c!2sGrieg+Garden!5e0!3m2!1sen!2sus!4v1450126507698" width="450" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
             <br>
@@ -14,10 +50,11 @@
             </p>
         </div>
     </div>
+
     <div class="col-md-6 map">
         <div class="map-container">
             <h3>Reception</h3>
-            <h4 class="text-primary">6:30 pm</h4>
+            <h4 class="text-primary">Saturday, 6:30 pm</h4>
             <div class="map-overlay" onClick="style.pointerEvents='none'"></div>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1344.1479115347772!2d-122.29550866694102!3d47.639817971047755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x549014c6f6b93c81%3A0xaac2ed9e74ca4754!2sArboretum+Foundation!5e0!3m2!1sen!2sus!4v1450126768774" width="450" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
             <br>
@@ -30,4 +67,23 @@
             </p>
         </div>
     </div>
+
+    <% if (user.sunday_brunch) { %>
+
+        <div class="col-md-6 map">
+            <div class="map-container">
+                <h3>Sunday Brunch</h3>
+                <h4 class="text-primary">Sunday, ~10:00 am</h4>
+                <div class="map-overlay" onClick="style.pointerEvents='none'"></div>
+                <!--
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2687.690013524697!2d-122.31653164876484!3d47.65159037908547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x549014ee103bdc09%3A0x73fa232722bfd941!2sAgua+Verde+Cafe+%26+Paddle+Club!5e0!3m2!1sen!2sus!4v1461043018951" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                -->
+                <br>
+                <br>
+                <p>
+                <h4 class="text-primary">TBD</h4>
+                </p>
+            </div>
+        </div>
+    <% } %>
 </div>
