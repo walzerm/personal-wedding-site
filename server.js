@@ -58,7 +58,7 @@ passport.use('login', new LocalStrategy({
 
         //Query the table for user
         knex('party_numbers').where('group_name', userID).first().then(function(user) {
-
+            console.log(user);
             //if no user, add user
             if (!user) {
                 var hash = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null)
