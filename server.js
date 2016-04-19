@@ -60,12 +60,12 @@ passport.use('login', new LocalStrategy({
         knex('party_numbers').where('group_name', userID).first().then(function(user) {
             console.log(user);
             //if no user, add user
-            if (!user) {
-                var hash = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null)
-                knex('party_numbers').insert({group_name: userID, password: hash, attendees: 3, rsvp: false}).then(function(user) {
-                    return done(null, user.group_name);
-                })
-            }
+            // if (!user) {
+            //     var hash = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null)
+            //     knex('party_numbers').insert({group_name: userID, password: hash, attendees: 3, rsvp: false}).then(function(user) {
+            //         return done(null, user.group_name);
+            //     })
+            // }
             //compare the passwords
             if (!bcrypt.compareSync(password, user.password)) {
                 return done(null, false, req.flash('loginMessage', 'Incorrect username and/or password'));
