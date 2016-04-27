@@ -9,7 +9,9 @@ var express = require('express'),
     knex = require('./db/knex'),
     morgan = require('morgan'),
     flash = require('connect-flash'),
-    expressSession = require('express-session');
+    expressSession = require('express-session'),
+    pg = require('pg'),
+    pgSession = require('connect-pg-simple')(expressSession);
 
 //Middleware
 app.use(express.static('public'));
@@ -17,10 +19,18 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(morgan('dev'));
 
+var env = process.env.NODE_ENV || 'development';
+var conString = env == 'production' ? null : 'postgresql://localhost:5432/wedding';
+
 app.use(expressSession({
+  store: new pgSession({
+      pg: pg,
+      conString: conString,
+  }),
   secret: 'supersecret',
   resave: true,
-  saveUninitialized: true
+  saveUninitialized: true,
+  cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 } // 30 days ,
 }));
 
 //Passport for authentication
