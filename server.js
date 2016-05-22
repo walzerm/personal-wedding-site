@@ -11,7 +11,8 @@ var express = require('express'),
     flash = require('connect-flash'),
     expressSession = require('express-session'),
     pg = require('pg'),
-    pgSession = require('connect-pg-simple')(expressSession);
+    pgSession = require('connect-pg-simple')(expressSession),
+    favicon = require('serve-favicon');
 
 //Middleware
 app.use(express.static('public'));
@@ -38,6 +39,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
+// favicon
+app.use(favicon(__dirname + '/public/header_logo_sm.png'));
 
 //Set views
 app.set('views', path.join(__dirname, 'views'));
