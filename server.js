@@ -40,7 +40,7 @@ app.use(passport.session());
 app.use(flash());
 
 // favicon
-app.use(favicon(__dirname + '/public/header_logo_sm.png'));
+app.use(favicon(__dirname + '/public/favicon.ico'));
 
 //Set views
 app.set('views', path.join(__dirname, 'views'));
