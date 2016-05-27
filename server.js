@@ -69,7 +69,7 @@ passport.use('login', new LocalStrategy({
     },
     function(req, userID, password, done) {
         //Query the table for user
-        knex('party_numbers').where('group_name', userID).first().then(function(user) {
+        knex('party_numbers').where('group_name', userID.toLowerCase()).first().then(function(user) {
             if (!user) {
                 // couldn't find user
                 return done(null, false, req.flash('loginMessage', 'Incorrect username and/or password'));
