@@ -16,12 +16,18 @@ router.get('/index', isLoggedIn, function(req, res) {
 })
 
 router.post('/rsvp', isLoggedIn, function(req, res) {
-    var rsvpResponse = true;
-    if (req.body.rsvpRadio === "decline") {
-        rsvpResponse = false;
-    }
+    var rsvpResponse = req.body.rsvpRadio === "accept";
+    var rehearsalDinnerRsvpResponse = req.body.rehearsalDinnerRsvpRadio === "accept";
+    var sundayBrunchRsvpResponse = req.body.sundayBrunchRsvpRadio === "accept";
 
-    knex('rsvp').insert({group_name: req.body.group_name, names: JSON.stringify(req.body.person), response: rsvpResponse, notes: req.body.notes}).then(function() {
+    knex('rsvp').insert({
+        group_name: req.body.group_name,
+        names: JSON.stringify(req.body.person),
+        response: rsvpResponse,
+        notes: req.body.notes,
+        rehearsal_dinner_response: rehearsalDinnerRsvpResponse,
+        sunday_brunch_response: sundayBrunchRsvpResponse,
+    }).then(function() {
         console.log('done');
     });
 

@@ -8,20 +8,53 @@
                 <p>Please indicate if you are accepting or declining.</p>
                 <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-1">
-                      <div class="radio">
-                          <label>
-                              <input type="radio" name="rsvpRadio" value="accept" checked="">
-                              Accepting
-                          </label>
-                      </div>
-                      <div class="radio">
-                          <label>
-                              <input type="radio" name="rsvpRadio" value="decline">
-                              Declining
-                          </label>
-                      </div>
-                    </div>
+                    <% if (user.sunday_brunch || user.rehearsal_dinner) { %>
+                        <b>Ceremony/Reception</b>
+                    <% } %>
+                  <div class="radio">
+                      <label>
+                          <input type="radio" name="rsvpRadio" value="accept" checked="">
+                          Accepting
+                      </label>
+                  </div>
+                  <div class="radio">
+                      <label>
+                          <input type="radio" name="rsvpRadio" value="decline">
+                          Declining
+                      </label>
+                  </div>
 
+                    <% if (user.rehearsal_dinner) { %>
+                        <b>Rehearsal Dinner</b>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="rehearsalDinnerRsvpRadio" value="accept" checked="">
+                                Accepting
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="rehearsalDinnerRsvpRadio" value="decline">
+                                Declining
+                            </label>
+                        </div>
+                    <% } %>
+
+                    <% if (user.sunday_brunch) { %>
+                        <b>Sunday Brunch</b>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="sundayBrunchRsvpRadio" value="accept" checked="">
+                                Accepting
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="sundayBrunchRsvpRadio" value="decline">
+                                Declining
+                            </label>
+                        </div>
+                    <% } %>
                 </div>
                 <p>If accepting, please enter the names of all attendees.</p>
                 <% for (var i = 0; i < user.attendees; i++) { %>
