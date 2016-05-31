@@ -1,87 +1,92 @@
 <div class="container-fluid content-section rsvp">
-    <h2>RSVP</h2>
+    <div class="col-lg-11 col-lg-offset-1">
+        <h2>RSVP</h2>
 
-    <% if (!rsvp) { %>
-        <form class="form-horizontal" action="/rsvp" method="post">
-            <fieldset>
-                <input type="hidden" name="group_name" value="<%= user.group_name %>">
-                <p>Please indicate if you are accepting or declining.</p>
-                <div class="form-group">
-                    <div class="col-lg-10 col-lg-offset-1">
-                    <% if (user.sunday_brunch || user.rehearsal_dinner) { %>
-                        <b>Ceremony/Reception</b>
-                    <% } %>
-                  <div class="radio">
-                      <label>
-                          <input type="radio" name="rsvpRadio" value="accept" checked="">
-                          Accepting
-                      </label>
-                  </div>
-                  <div class="radio">
-                      <label>
-                          <input type="radio" name="rsvpRadio" value="decline">
-                          Declining
-                      </label>
-                  </div>
-
-                    <% if (user.rehearsal_dinner) { %>
-                        <b>Rehearsal Dinner</b>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" name="rehearsalDinnerRsvpRadio" value="accept" checked="">
-                                Accepting
-                            </label>
-                        </div>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" name="rehearsalDinnerRsvpRadio" value="decline">
-                                Declining
-                            </label>
-                        </div>
-                    <% } %>
-
-                    <% if (user.sunday_brunch) { %>
-                        <b>Sunday Brunch</b>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" name="sundayBrunchRsvpRadio" value="accept" checked="">
-                                Accepting
-                            </label>
-                        </div>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" name="sundayBrunchRsvpRadio" value="decline">
-                                Declining
-                            </label>
-                        </div>
-                    <% } %>
-                </div>
-                <p>If accepting, please enter the names of all attendees.</p>
-                <% for (var i = 0; i < user.attendees; i++) { %>
+        <% if (!rsvp) { %>
+            <form class="form-horizontal" action="/rsvp" method="post">
+                <fieldset>
+                    <input type="hidden" name="group_name" value="<%= user.group_name %>">
+                    <p>Please indicate if you are accepting or declining.</p>
                     <div class="form-group">
-                        <div class="col-lg-8 col-lg-offset-1">
-                            <input type="text" class="form-control" name="person" placeholder="Name">
+                        <div class="col-lg-11 col-lg-offset-1">
+                        <% if (user.sunday_brunch || user.rehearsal_dinner) { %>
+                            <b>Ceremony/Reception</b>
+                        <% } %>
+                      <div class="radio">
+                          <label>
+                              <input type="radio" name="rsvpRadio" value="accept" checked="">
+                              Accepting
+                          </label>
+                      </div>
+                      <div class="radio">
+                          <label>
+                              <input type="radio" name="rsvpRadio" value="decline">
+                              Declining
+                          </label>
+                      </div>
+
+                        <% if (user.rehearsal_dinner) { %>
+                            <b>Rehearsal Dinner</b>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="rehearsalDinnerRsvpRadio" value="accept" checked="">
+                                    Accepting
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="rehearsalDinnerRsvpRadio" value="decline">
+                                    Declining
+                                </label>
+                            </div>
+                        <% } %>
+
+                        <% if (user.sunday_brunch) { %>
+                            <b>Sunday Brunch</b>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="sundayBrunchRsvpRadio" value="accept" checked="">
+                                    Accepting
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="sundayBrunchRsvpRadio" value="decline">
+                                    Declining
+                                </label>
+                            </div>
+                        <% } %>
+                    </div>
+
+                    <p>If accepting, please enter the names of all attendees.</p>
+
+                    <% for (var i = 0; i < user.attendees; i++) { %>
+                        <div class="form-group">
+                            <div class="col-lg-8 col-lg-offset-1">
+                                <input type="text" class="form-control" name="person" placeholder="Name">
+                            </div>
+                        </div>
+                    <% } %>
+                    <p>Anything to add?</p>
+                    <div class="form-group">
+                        <div class="col-lg-10 col-lg-offset-1">
+                            <textarea name="notes" rows="5" cols="40" placeholder="Comments"></textarea>
                         </div>
                     </div>
-                <% } %>
-                <p>Anything to add?</p>
-                <div class="form-group">
-                    <div class="col-lg-10 col-lg-offset-1">
-                        <textarea name="notes" rows="5" cols="40" placeholder="Comments"></textarea>
+                    <div class="form-group">
+                        <div class="col-lg-10 col-lg-offset-1">
+                            <button type="submit" class="btn btn-primary">Send!</button>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-lg-10 col-lg-offset-1">
-                        <button type="submit" class="btn btn-primary">Send!</button>
-                    </div>
-                </div>
-            </fieldset>
-        </form>
-    <% } else { %>
-        <p>
-            Thank you for your reply! Please <a href="#contact">contact us</a> if you need to change your response.
-        </p>
-    <% } %>
+                </fieldset>
+            </form>
+        <% } else { %>
+            <p>
+                Thank you for your reply! Please <a href="#contact">contact us</a> if you need to change your response.
+            </p>
+        <% } %>
+
+    </div>
 
 
 </div>
