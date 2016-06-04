@@ -56,3 +56,7 @@ h1 {
 .content-section:nth-of-type(even) {
     background-color: #CBCADE;
 }
+
+a {
+    color: #4582ec;
+}
