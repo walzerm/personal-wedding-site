@@ -1,5 +1,30 @@
+<% var rsvp_count = 0, sunday_brunch = 0, rehersal = 0; %>
+
 <table border="1">
-    <% rsvps.forEach(function(rsvp) { %>
+    <tr>
+        <th>
+            Group
+        </th>
+        <th>
+            Names
+        </th>
+        <th>
+            Response
+        </th>
+        <th>
+            Comments
+        </th>
+        <th>
+            Rehersal Dinner
+        </th>
+        <th>
+            Sunday Brunch
+        </th>
+    </tr>
+    <% rsvps.forEach(function(rsvp) {
+        if (rsvp.response) rsvp_count++;
+        if (rsvp.rehearsal_dinner_response) rehersal++;
+        if (rsvp.sunday_brunch_response) sunday_brunch++ ;%>
             <tr>
                 <td>
                     <%= rsvp.group_name %>
@@ -21,4 +46,24 @@
                 </td>
             </tr>
     <% }) %>
+    <tr>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+            Tota: <%= rsvp_count %>
+        </td>
+        <td>
+
+        </td>
+        <td>
+            Tota: <%= rehersal %>
+        </td>
+        <td>
+            Total: <%= sunday_brunch %>
+        </td>
+    </tr>
 </table>
