@@ -36,6 +36,20 @@ router.post('/rsvp', isLoggedIn, function(req, res) {
     res.redirect('/index');
 })
 
+router.get('/rsvptable', isLoggedIn, function(req, res) {
+
+    if (req.user.group_name === 'test2' || req.user.group_name === 'br_walzer') {
+        console.log(req.user.group_name);
+        knex('rsvp').then(function(rsvps) {
+            res.render('rsvp_table', {rsvps: rsvps});
+        })
+    } else {
+        res.status(404)        // HTTP status 404: NotFound
+            .send('Not found');
+    }
+
+})
+
 // route middleware to make sure a user is logged in
 function isLoggedIn(req, res, next) {
     // if user is authenticated in the session, carry on

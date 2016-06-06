@@ -1,0 +1,24 @@
+<table>
+    <% rsvps.forEach(function(rsvp) { %>
+            <tr>
+                <td>
+                    <%= rsvp.group_name %>
+                </td>
+                <td>
+                    <%= rsvp.names %>
+                </td>
+                <td>
+                    <%= rsvp.response %>
+                </td>
+                <td>
+                    <%= rsvp.notes %>
+                </td>
+                <td>
+                    <%= rsvp.rehearsal_dinner_response %>
+                </td>
+                <td>
+                    <%= rsvp.sunday_brunch_response %>
+                </td>
+            </tr>
+    <% }) %>
+</table>
