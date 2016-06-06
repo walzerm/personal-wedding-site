@@ -22,7 +22,7 @@
         </th>
     </tr>
     <% rsvps.forEach(function(rsvp) {
-        if (rsvp.response) rsvp_count++;
+        if (rsvp.response) rsvp_count += rsvp.names.length;
         if (rsvp.rehearsal_dinner_response) rehersal++;
         if (rsvp.sunday_brunch_response) sunday_brunch++ ;%>
             <tr>
