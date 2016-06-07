@@ -23,13 +23,26 @@
     </tr>
     <% rsvps.forEach(function(rsvp) {
         if (rsvp.response) {
-            if (typeof rsvp.response === "string") {
+            if (typeof rsvp.names === "string") {
                 rsvp_count++;
             } else {
                 rsvp_count += rsvp.names.length;
             }
-        if (rsvp.rehearsal_dinner_response) rehersal++;
-        if (rsvp.sunday_brunch_response) sunday_brunch++ ;%>
+        }
+        if (rsvp.rehearsal_dinner_response) {
+            if (typeof rsvp.names === "string") {
+                rehersal++;
+            } else {
+                rehersal += rsvp.names.length;
+            }
+        }
+        if (rsvp.runday_brunch_response) {
+            if (typeof rsvp.names === "string") {
+                sunday_brunch++;
+            } else {
+                sunday_brunch += rsvp.names.length;
+            }
+        } %>
             <tr>
                 <td>
                     <%= rsvp.group_name %>
