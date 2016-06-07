@@ -38,7 +38,7 @@ router.post('/rsvp', isLoggedIn, function(req, res) {
 
 router.get('/rsvptable', isLoggedIn, function(req, res) {
 
-    if (req.user.group_name === 'test5' || req.user.group_name === 'br_walzer') {
+    if (req.user.group_name === 'test2' || req.user.group_name === 'br_walzer') {
         console.log(req.user.group_name);
         knex('rsvp').then(function(rsvps) {
             res.render('rsvp_table', {rsvps: rsvps});
