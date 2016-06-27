@@ -9,6 +9,9 @@
             Names
         </th>
         <th>
+            # of names
+        </th>
+        <th>
             Response
         </th>
         <th>
@@ -22,26 +25,20 @@
         </th>
     </tr>
     <% rsvps.forEach(function(rsvp) {
+        var numNames;
+        if (typeof rsvp.names === "string") {
+            numNames = 1;
+        } else {
+            numNames = rsvp.names.filter(function(v) { return v !== '' }).length;
+        }
         if (rsvp.response) {
-            if (typeof rsvp.names === "string") {
-                rsvp_count++;
-            } else {
-                rsvp_count += rsvp.names.filter(function(v) { return v !== '' }).length;
-            }
+            rsvp_count += numNames;
         }
         if (rsvp.rehearsal_dinner_response) {
-            if (typeof rsvp.names === "string") {
-                rehersal++;
-            } else {
-                rehersal += rsvp.names.filter(function(v) { return v !== '' }).length;
-            }
+            rehersal += numNames;
         }
         if (rsvp.sunday_brunch_response) {
-            if (typeof rsvp.names === "string") {
-                sunday_brunch++;
-            } else {
-                sunday_brunch += rsvp.names.filter(function(v) { return v !== '' }).length;
-            }
+            sunday_brunch += numNames;
         } %>
             <tr>
                 <td>
@@ -49,6 +46,9 @@
                 </td>
                 <td>
                     <%= rsvp.names %>
+                </td>
+                <td>
+                    <%= numNames %>
                 </td>
                 <td>
                     <%= rsvp.response %>
@@ -67,6 +67,9 @@
     <tr>
         <td>
 
+        </td>
+        <td>
+        <td>
         </td>
         <td>
 
