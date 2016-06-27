@@ -40,7 +40,7 @@ router.get('/rsvptable', isLoggedIn, function(req, res) {
 
     if (req.user.group_name === 'test2' || req.user.group_name === 'br_walzer') {
         console.log(req.user.group_name);
-        knex('rsvp').then(function(rsvps) {
+        knex('rsvp').orderBy('id', 'ASC').then(function(rsvps) {
             res.render('rsvp_table', {rsvps: rsvps});
         })
     } else {

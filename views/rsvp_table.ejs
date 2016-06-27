@@ -26,21 +26,21 @@
             if (typeof rsvp.names === "string") {
                 rsvp_count++;
             } else {
-                rsvp_count += rsvp.names.length;
+                rsvp_count += rsvp.names.filter(function(v) { return v !== '' }).length;
             }
         }
         if (rsvp.rehearsal_dinner_response) {
             if (typeof rsvp.names === "string") {
                 rehersal++;
             } else {
-                rehersal += rsvp.names.length;
+                rehersal += rsvp.names.filter(function(v) { return v !== '' }).length;
             }
         }
         if (rsvp.sunday_brunch_response) {
             if (typeof rsvp.names === "string") {
                 sunday_brunch++;
             } else {
-                sunday_brunch += rsvp.names.length;
+                sunday_brunch += rsvp.names.filter(function(v) { return v !== '' }).length;
             }
         } %>
             <tr>
