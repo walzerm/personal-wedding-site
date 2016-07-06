@@ -1,0 +1,14 @@
+<table border="1">
+  <tr>
+    <th>
+      Group Name
+    </th>
+  </tr>
+  <% missing_groups.forEach(function(group) { %>
+    <tr>
+      <td>
+        <%= group.group_name %>
+      </td>
+    </tr>
+  <% }) %>
+</table>

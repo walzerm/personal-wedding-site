@@ -50,6 +50,24 @@ router.get('/rsvptable', isLoggedIn, function(req, res) {
 
 })
 
+router.get('/missingrsvp', isLoggedIn, function(req, res) {
+
+    if (req.user.group_name === 'test2' || req.user.group_name === 'br_walzer') {
+        console.log(req.user.group_name);
+
+        knex.select('party_numbers.group_name')
+          .from('party_numbers')
+          .leftOuterJoin('rsvp', 'party_numbers.group_name', 'rsvp.group_name')
+          .whereNull('rsvp.group_name')
+          .then(function(missing) {
+           res.render('missing_rsvp_table', {missing_groups: missing});
+        });
+    } else {
+        res.status(404)        // HTTP status 404: NotFound
+          .send('Not found');
+    }
+})
+
 // route middleware to make sure a user is logged in
 function isLoggedIn(req, res, next) {
     // if user is authenticated in the session, carry on
