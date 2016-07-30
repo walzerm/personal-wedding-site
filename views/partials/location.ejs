@@ -1,92 +1,60 @@
 <div class="container-fluid content-section location">
-
+    <% var data = {}; %>
 
     <% if (user.rehearsal_dinner) { %>
-    <div class="col-md-6 map">
-        <div class="map-container">
-            <h3>Rehearsal</h3>
-            <h4 class="text-primary">Friday, ~5:00 pm (TBD)</h4>
-            <div class="map-overlay" onClick="style.pointerEvents='none'"></div>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2687.453054421141!2d-122.30880398455729!3d47.65619449254414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5490148d152eb78f%3A0x5d9e020c09e1ee7c!2sGrieg+Garden!5e0!3m2!1sen!2sus!4v1450126507698" width="450" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
-            <br>
-            <br>
-            <p>
-            <h4 class="text-primary">Grieg Garden </h4>
-            Univeristy of Washington <br>
-            Seattle, WA <br>
-            <span class="text-primary">Casual dress</span> <br>
-            </p>
-        </div>
-    </div>
-
-    <div class="col-md-6 map">
-        <div class="map-container">
-            <h3>Rehearsal Dinner</h3>
-            <h4 class="text-primary">Friday, ~6:00 pm (following rehearsal)</h4>
-            <div class="map-overlay" onClick="style.pointerEvents='none'"></div>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2687.690013524697!2d-122.31653164876484!3d47.65159037908547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x549014ee103bdc09%3A0x73fa232722bfd941!2sAgua+Verde+Cafe+%26+Paddle+Club!5e0!3m2!1sen!2sus!4v1461043018951" width="450" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
-            <br>
-            <br>
-            <p>
-            <h4 class="text-primary">Agua Verde</h4>
-            1303 NE Boat St <br>
-            Seattle, WA <br>
-            <span class="text-primary">Casual dress</span> <br>
-            </p>
-        </div>
-    </div>
+        <%
+            data = {
+                title: 'Rehearsal Dinner',
+                time: 'Friday, 5:00 pm',
+                url: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2687.690013524697!2d-122.31653164876484!3d47.65159037908547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x549014ee103bdc09%3A0x73fa232722bfd941!2sAgua+Verde+Cafe+%26+Paddle+Club!5e0!3m2!1sen!2sus!4v1461043018951',
+                placeName: 'Agua Verde (water level)',
+                streetAddress: '1303 NE Boat St',
+                parkingInfo: 'across the street in the lot. Agua Verde has access to it after 4pm. You can drop off people by driving east on Boat Street and entering the small lot to the right.',
+                dressCode: 'Casual dress',
+            };
+        %>
+        <% include location_blurb %>
     <% } %>
 
-    <div class="col-md-6 map">
-        <div class="map-container">
-            <h3>Ceremony</h3>
-            <h4 class="text-primary">Saturday, 5:30 pm</h4>
-            <div class="map-overlay" onClick="style.pointerEvents='none'"></div>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2687.453054421141!2d-122.30880398455729!3d47.65619449254414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5490148d152eb78f%3A0x5d9e020c09e1ee7c!2sGrieg+Garden!5e0!3m2!1sen!2sus!4v1450126507698" width="450" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
-            <br>
-            <br>
-            <p>
-                <h4 class="text-primary">Grieg Garden </h4>
-                Univeristy of Washington <br>
-                Seattle, WA <br>
-                <span class="text-primary">Semiformal dress</span> <br>
-            </p>
-        </div>
-    </div>
+    <%
+    data = {
+        title: 'Ceremony',
+        time: 'Saturday, 5:15 pm',
+        url: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2687.453054421141!2d-122.30880398455729!3d47.65619449254414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5490148d152eb78f%3A0x5d9e020c09e1ee7c!2sGrieg+Garden!5e0!3m2!1sen!2sus!4v1450126507698',
+        placeName: 'Grieg Garden',
+        streetAddress: 'University of Washington',
+        parkingInfo: 'N5 Lot, immediately to your left after you turn south onto Memorial Drive (the main entrance) from 45th. If you\'re familiar with UW, the Central Garage also works as it is closer (but also more confusing). Uber/Lyft are also recommended.',
+        parkingInfoUrl: 'https://www.google.com/maps/place/Parking+Area+N5,+Seattle,+WA+98105/@47.6603759,-122.3099491,18z/data=!3m1!4b1!4m5!3m4!1s0x5490148b9ad6f6d1:0x23cbffa3cf8bf4bb!8m2!3d47.6604409!4d-122.3088134',
+        dressCode: 'Semiformal dress',
+    };
+    %>
+    <% include location_blurb %>
 
-    <div class="col-md-6 map">
-        <div class="map-container">
-            <h3>Reception</h3>
-            <h4 class="text-primary">Saturday, 6:30 pm</h4>
-            <div class="map-overlay" onClick="style.pointerEvents='none'"></div>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1344.1479115347772!2d-122.29550866694102!3d47.639817971047755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x549014c6f6b93c81%3A0xaac2ed9e74ca4754!2sArboretum+Foundation!5e0!3m2!1sen!2sus!4v1450126768774" width="450" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
-            <br>
-            <br>
-            <p>
-                <h4 class="text-primary">Graham Visitor's Center </h4>
-                Washington Park Arboretum <br>
-                Seattle, WA <br>
-                <span class="text-primary">Semiformal dress</span> <br>
-            </p>
-        </div>
-    </div>
+    <%
+    data = {
+        title: 'Reception',
+        time: 'Saturday, 6:30 pm',
+        url: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1344.1479115347772!2d-122.29550866694102!3d47.639817971047755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x549014c6f6b93c81%3A0xaac2ed9e74ca4754!2sArboretum+Foundation!5e0!3m2!1sen!2sus!4v1450126768774',
+        placeName: 'Graham Visitor\'s Center',
+        streetAddress: 'Washington Park Arboretum',
+        parkingInfo: 'There is generally parking across the street in the various lots. Uber/Lyft would also be a good option',
+        dressCode: 'Semiformal dress',
+    };
+    %>
+    <% include location_blurb %>
 
     <% if (user.sunday_brunch) { %>
-        <div class="col-md-6 map">
-            <div class="map-container">
-                <h3>Sunday Brunch</h3>
-                <h4 class="text-primary">Sunday, 10:00 am</h4>
-                <div class="map-overlay" onClick="style.pointerEvents='none'"></div>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2689.663132948561!2d-122.34491584801131!3d47.61323957908299!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5490154cf5c86105%3A0xff19bd25600bbc33!2sOrfeo!5e0!3m2!1sen!2sus!4v1462895551675" width="450" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
-                <br>
-                <br>
-                <p>
-                <h4 class="text-primary">Orfeo</h4>
-                2107 3rd Ave<br>
-                Seattle, WA 98121<br>
-                <span class="text-primary">Casual dress</span> <br>
-                </p>
-            </div>
-        </div>
+        <%
+            data = {
+                title: 'Sunday Brunch',
+                time: 'Sunday, 10:00 am',
+                url: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2689.663132948561!2d-122.34491584801131!3d47.61323957908299!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5490154cf5c86105%3A0xff19bd25600bbc33!2sOrfeo!5e0!3m2!1sen!2sus!4v1462895551675',
+                placeName: 'Orfeo',
+                streetAddress: '2107 3rd Ave',
+                parkingInfo: 'Street parking',
+                dressCode: 'Casual dress',
+            };
+        %>
+        <% include location_blurb %>
     <% } %>
 </div>

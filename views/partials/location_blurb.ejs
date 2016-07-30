@@ -1,0 +1,24 @@
+<div class="col-md-6 map">
+  <div class="map-container">
+    <h3><%= data.title %></h3>
+    <h4 class="text-primary"><%= data.time %></h4>
+    <div class="map-overlay" onClick="style.pointerEvents='none'"></div>
+    <iframe src="<%= data.url %>" width="450" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+    <br>
+    <br>
+    <p>
+      <h4 class="text-primary"><% data.placeName %></h4>
+      <%= data.streetAddress %><br>
+      Seattle, WA <br>
+      <br>
+      <b>Parking: </b>
+      <%= data.parkingInfo %>
+      <% if (data.parkingInfoUrl) { %>
+        <a href="<%= data.parkingInfoUrl %>">Map</a>
+      <% } %>
+      <br>
+      <br>
+      <span class="text-primary"><%= data.dressCode %></span> <br>
+    </p>
+  </div>
+</div>

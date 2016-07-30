@@ -34,6 +34,7 @@ h1 {
 .map {
     margin-top: 4%;
     text-align: center;
+    min-height: 700px;
 }
 .lodging-title {
     font-size: 26px;
